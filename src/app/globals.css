@@ -23,7 +23,6 @@ a {
 }
 
 .container {
-  background-color: rgb(31, 39, 72);
   width: 1536px;
   margin: auto;
   padding-left: 50px;
@@ -32,4 +31,43 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+/* make container responsive, and add common break points */
+@media (max-width: 1536px) {
+  .container {
+    width: 1366px;
+  }
+}
+
+@media (max-width: 1366px) {
+  .container {
+    width: 1280px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .container {
+    width: 1024px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    width: 768px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 640px;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    width: 475px;
+  }
 }
