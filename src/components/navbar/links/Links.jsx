@@ -22,7 +22,7 @@ const Links = () => {
       <div className={styles.links}>
         {links.map((link) => (
           <NavLink item={link} key={link.title} />
-        ))}{" "}
+        ))}
         {/* write a condition for authentication */}
         {session ? (
           <>

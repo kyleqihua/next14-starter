@@ -1,0 +1,6 @@
+/* optimise the img based on the device */
+.imgContainer {
+  position: relative;
+  width: 100%;
+  height: 500px;
+}
