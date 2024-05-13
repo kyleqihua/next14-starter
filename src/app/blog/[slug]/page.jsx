@@ -7,7 +7,7 @@ import { getPost } from "@/lib/data"
 
 // fetch data from an API
 // const getData = async (slug) => {
-//   const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${slug}`)
+//   const res = await fetch(`http://localhost:3000/api/blog/${slug}`)
 
 //   if (!res.ok) {
 //     throw new Error("Something went wrong")
@@ -15,6 +15,15 @@ import { getPost } from "@/lib/data"
 
 //   return res.json()
 // }
+
+export const generateMetadata = async ({ params }) => {
+  const { slug } = params
+  const post = await getPost(slug)
+  return {
+    title: post.title,
+    description: post.desc,
+  }
+}
 
 const SinglePostPage = async ({ params }) => {
   const { slug } = params
@@ -26,7 +35,7 @@ const SinglePostPage = async ({ params }) => {
     <div className={styles.container}>
       {post.img && (
         <div className={styles.imgContainer}>
-          <Image src={post.img} alt="post image" fill className={styles.img} />
+          <Image src={post.img} alt="" fill className={styles.img} />
         </div>
       )}
       <div className={styles.textContainer}>

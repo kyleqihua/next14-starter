@@ -1,14 +1,17 @@
-import { Inter } from "next/font/google";
-import "./globals.css";
-import Navbar from "@/components/navbar/Navbar";
-import Footer from "@/components/footer/Footer";
+import { Inter } from "next/font/google"
+import "./globals.css"
+import Navbar from "@/components/navbar/Navbar"
+import Footer from "@/components/footer/Footer"
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
-  title: "Next App",
+  title: {
+    default: "Next.js 14 Hompage",
+    template: "%s | Next.js 14",
+  },
   description: "Next.js starter app",
-};
+}
 
 export default function RootLayout({ children }) {
   return (
@@ -21,5 +24,5 @@ export default function RootLayout({ children }) {
         </div>
       </body>
     </html>
-  );
+  )
 }
