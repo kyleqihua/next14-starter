@@ -3,6 +3,7 @@ import styles from "./singlePost.module.css"
 // import { Post } from "@/lib/models"
 import PostUser from "@/components/postUser/postUser"
 import { Suspense } from "react"
+import { getPost } from "@/lib/data"
 
 // fetch data from an API
 // const getData = async (slug) => {
@@ -17,7 +18,10 @@ import { Suspense } from "react"
 
 const SinglePostPage = async ({ params }) => {
   const { slug } = params
+  // fetch data from an API
   // const post = await getData(slug)
+  // fetch data without an API
+  const post = await getPost(slug)
   return (
     <div className={styles.container}>
       <div className={styles.imgContainer}>
