@@ -1,21 +1,22 @@
-"use client";
-import { useState } from "react";
-import styles from "./links.module.css";
-import NavLink from "./navLink/NavLink";
+"use client"
+import { useState } from "react"
+import styles from "./links.module.css"
+import NavLink from "./navLink/NavLink"
+import Image from "next/image"
 
 const links = [
   { title: "Homepage", path: "/" },
   { title: "About", path: "/about" },
   { title: "Contact", path: "/contact" },
   { title: "Blog", path: "/blog" },
-];
+]
 
 const Links = () => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false)
 
   //temporary data
-  const session = true;
-  const isAdmin = true;
+  const session = true
+  const isAdmin = true
 
   return (
     <div className={styles.container}>
@@ -35,12 +36,15 @@ const Links = () => {
         )}
       </div>
       {/* create a button for the mobile menu. add the set state of open */}
-      <button
+
+      <Image
         className={styles.menuButton}
+        src="/menu.png"
+        alt="menu button"
+        width={30}
+        height={30}
         onClick={() => setOpen((prev) => !prev)}
-      >
-        Menu
-      </button>
+      />
       {/* check if the menu button is open. if open, map again */}
       {open && (
         <div className={styles.mobileLinks}>
@@ -50,7 +54,7 @@ const Links = () => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default Links;
+export default Links
