@@ -24,33 +24,27 @@ const SinglePostPage = async ({ params }) => {
   const post = await getPost(slug)
   return (
     <div className={styles.container}>
-      <div className={styles.imgContainer}>
-        <Image
-          src="https://images.pexels.com/photos/250591/pexels-photo-250591.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-          alt="post image"
-          fill
-          className={styles.img}
-        />
-      </div>
-
+      {post.img && (
+        <div className={styles.imgContainer}>
+          <Image src={post.img} alt="post image" fill className={styles.img} />
+        </div>
+      )}
       <div className={styles.textContainer}>
         <h1 className={styles.title}>{post.title}</h1>
         <div className={styles.detail}>
-          <Image
-            className={styles.avatar}
-            src="https://images.pexels.com/photos/250591/pexels-photo-250591.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-            alt="avatar imgage"
-            width={50}
-            height={50}
-          />
-          <Suspense fallback={<div>Loading...</div>} />
-          <PostUser userId={post.userId} />
+          {post && (
+            <Suspense fallback={<div>Loading...</div>}>
+              <PostUser userId={post.userId} />
+            </Suspense>
+          )}
           <div className={styles.detailText}>
             <span className={styles.detailTitle}>Published</span>
-            <span className={styles.dateValue}>01.01.2024</span>
+            <span className={styles.dateValue}>
+              {post.createdAt.toString().slice(4, 16)}
+            </span>
           </div>
         </div>
-        <div className={styles.content}>{post.body}</div>
+        <div className={styles.content}>{post.desc}</div>
       </div>
     </div>
   )
